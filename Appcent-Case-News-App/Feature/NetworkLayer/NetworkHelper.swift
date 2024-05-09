@@ -18,24 +18,6 @@ final class NetworkHelper {
     }
 }
 
-//MARK -Endpoint
-enum Endpoint {
-    case topHeadlines(country: String)
-    case search(query: String)
-    case source
-
-    func rawValue() -> String {
-        switch self {
-        case .topHeadlines(let country):
-            return "top-headlines?country=\(country)"
-        case .search(let query):
-            return "everything?q=\(query)"
-        case .source:
-            return "sources"
-        }
-    }
-}
-
 //MARK: -HTTPMethods
 enum HTTPMethods {
     case get

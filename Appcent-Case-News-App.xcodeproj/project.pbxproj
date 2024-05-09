@@ -11,6 +11,8 @@
 		C38CD58E2BECD1B600D936E7 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C38CD58D2BECD1B600D936E7 /* AlamofireDynamic */; };
 		C38CD58F2BECD1B600D936E7 /* AlamofireDynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C38CD58D2BECD1B600D936E7 /* AlamofireDynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C38CD5912BECD1B600D936E7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C38CD5902BECD1B600D936E7 /* Kingfisher */; };
+		C38CD5942BECE08400D936E7 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38CD5932BECE08400D936E7 /* HomeViewController+TableView.swift */; };
+		C38CD5962BECE22E00D936E7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38CD5952BECE22E00D936E7 /* Endpoint.swift */; };
 		C3AF01042BECCBD800A6CA33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AF01032BECCBD800A6CA33 /* AppDelegate.swift */; };
 		C3AF01062BECCBD800A6CA33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AF01052BECCBD800A6CA33 /* SceneDelegate.swift */; };
 		C3AF01082BECCBD800A6CA33 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3AF01072BECCBD800A6CA33 /* HomeViewController.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C38CD5932BECE08400D936E7 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
+		C38CD5952BECE22E00D936E7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C3AF01002BECCBD800A6CA33 /* Appcent-Case-News-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appcent-Case-News-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3AF01032BECCBD800A6CA33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3AF01052BECCBD800A6CA33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				C3AF01072BECCBD800A6CA33 /* HomeViewController.swift */,
+				C38CD5932BECE08400D936E7 /* HomeViewController+TableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 			children = (
 				C3AF01392BECCDF200A6CA33 /* NetworkHelper.swift */,
 				C3AF013B2BECCDFA00A6CA33 /* NetworkManager.swift */,
+				C38CD5952BECE22E00D936E7 /* Endpoint.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -358,12 +364,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3AF013E2BECCE3800A6CA33 /* News.swift in Sources */,
+				C38CD5962BECE22E00D936E7 /* Endpoint.swift in Sources */,
 				C3AF013A2BECCDF200A6CA33 /* NetworkHelper.swift in Sources */,
 				C3AF01412BECCE5700A6CA33 /* HomeViewModel.swift in Sources */,
 				C3AF01082BECCBD800A6CA33 /* HomeViewController.swift in Sources */,
 				C3AF013C2BECCDFA00A6CA33 /* NetworkManager.swift in Sources */,
 				C3AF01042BECCBD800A6CA33 /* AppDelegate.swift in Sources */,
 				C3AF01062BECCBD800A6CA33 /* SceneDelegate.swift in Sources */,
+				C38CD5942BECE08400D936E7 /* HomeViewController+TableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
