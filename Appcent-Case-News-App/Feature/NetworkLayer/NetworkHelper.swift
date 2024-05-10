@@ -13,8 +13,8 @@ final class NetworkHelper {
     private static let BASE_URL = "https://newsapi.org/v2/"
     private static let API_KEY = "&apiKey=e6dfab9067f44cc29723b8e9606a9584"
     
-    static func toURL(endpoint: Endpoint) -> URL? {
-        return URL(string: NetworkHelper.BASE_URL + endpoint.rawValue() + NetworkHelper.API_KEY)
+    static func toURL(endpoint: Endpoint, page: Int) -> URL? {
+        return URL(string: NetworkHelper.BASE_URL + endpoint.rawValue() + "&page=\(page)" + NetworkHelper.API_KEY)
     }
 }
 

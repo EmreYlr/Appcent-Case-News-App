@@ -15,11 +15,23 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        var context = cell.defaultContentConfiguration()
-        context.text = homeViewModel.newsItem[indexPath.row].title
-        context.secondaryText = homeViewModel.newsItem[indexPath.row].description
-        cell.contentConfiguration = context
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
+        let news = homeViewModel.newsItem[indexPath.row]
+    
+        cell.titleCell.text = news.title
+        cell.descriptionCell.text = news.description
+        cell.dateCell.text = news.publishedAt
+        cell.sourceCell.text = news.source.id
+        cell.imageCell.image = UIImage(named: "Test")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == homeViewModel.newsItem.count - 1 {
+            homeViewModel.loadNextPage()
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
     }
 }

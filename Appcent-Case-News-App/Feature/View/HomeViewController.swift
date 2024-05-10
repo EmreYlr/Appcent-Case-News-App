@@ -17,7 +17,9 @@ final class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         homeViewModel.delegate = self
-        homeViewModel.fetchData()
+        tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        homeViewModel.fetchData(endpoint: .topHeadlines(country: .us))
     }
 }
 

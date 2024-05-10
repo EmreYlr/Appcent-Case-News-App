@@ -24,10 +24,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="BOu-5L-bXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="72m-W4-Ifu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BOu-5L-bXg" secondAttribute="trailing" id="SSa-lN-NdD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BOu-5L-bXg" secondAttribute="bottom" id="ddI-wH-kQB"/>
-                            <constraint firstItem="BOu-5L-bXg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iqx-Qn-Qjj"/>
+                            <constraint firstItem="BOu-5L-bXg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Wlc-wp-4Nh"/>
+                            <constraint firstItem="BOu-5L-bXg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lkg-xa-11z"/>
+                            <constraint firstItem="BOu-5L-bXg" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="q49-Ue-oqu"/>
+                            <constraint firstItem="BOu-5L-bXg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uBp-7W-eHm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Appcent NewsApp" id="Wh0-1a-Auy"/>
