@@ -28,12 +28,13 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKo-Vo-4SA">
                         <rect key="frame" x="15" y="136" width="185" height="9"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <color key="textColor" systemColor="placeholderTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lbQ-vy-nf5">
                         <rect key="frame" x="215" y="45" width="70" height="70"/>
+                        <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="OwG-gK-MO9"/>
                             <constraint firstAttribute="width" constant="70" id="mK4-It-rS0"/>
@@ -53,7 +54,7 @@
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="H0d-gb-ylI"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
                         <color key="textColor" systemColor="placeholderTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -86,6 +87,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

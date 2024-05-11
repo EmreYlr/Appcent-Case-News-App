@@ -17,12 +17,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
         let news = homeViewModel.newsItem[indexPath.row]
-    
-        cell.titleCell.text = news.title
-        cell.descriptionCell.text = news.description
-        cell.dateCell.text = news.publishedAt
-        cell.sourceCell.text = news.source.id
-        cell.imageCell.image = UIImage(named: "Test")
+        cell.mainCellConfiguration(title: news.title, imageURL: news.urlToImage, description: news.description, date: news.publishedAt, source: news.source.id)
         return cell
     }
     
@@ -31,7 +26,15 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
             homeViewModel.loadNextPage()
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailVC.detailViewModel.article = homeViewModel.newsItem[indexPath.row]
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
 }

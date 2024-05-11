@@ -29,7 +29,11 @@ final class HomeViewModel {
             NetworkManager.shared.request(from: url, method: .get) { [weak self] (result: Result<News, ErrorTypes>) in
                 switch result {
                 case .success(let data):
-                    self?.newsItem.append(contentsOf: data.articles)
+                    guard !data.articles.isEmpty else {
+                        self?.currentPage -= 1
+                        return
+                    }
+                    self?.newsItem.append(contentsOf: self?.filterData(data: data) ?? data.articles)
                     self?.delegate?.update()
                 case .failure(let error):
                     print("Hata: \(error)")
@@ -40,15 +44,26 @@ final class HomeViewModel {
     }
     
     func loadNextPage() {
-        if newsItem.count % 20 != 0 {
-            return
-        }
         currentPage += 1
         fetchData(endpoint: .topHeadlines(country: .us))
     }
-//        private func filterData(data: News) -> [Article] {
-//            return data.articles.filter { $0.title != "[Removed]" }
-//        }
+    
+    private func filterData(data: News) -> [Article] {
+        let dateFormatterInput = DateFormatter()
+        dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        let dateFormatterOutput = DateFormatter()
+        dateFormatterOutput.dateFormat = "dd-MM-yyyy"
+        
+        return data.articles.map { article in
+            var updatedArticle = article
+            if let publishedAt = dateFormatterInput.date(from: article.publishedAt) {
+                updatedArticle.publishedAt = dateFormatterOutput.string(from: publishedAt)
+            }
+            return updatedArticle
+        }.filter { $0.title != "[Removed]" }
+    }
+
 }
 
 extension HomeViewModel: HomeViewModelProtocol { }
