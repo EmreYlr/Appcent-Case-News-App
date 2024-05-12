@@ -25,7 +25,7 @@ class HomeTableViewCell: UITableViewCell {
         DispatchQueue.main.async { [self] in
             imageCell.kf.indicatorType = .activity
             if let imageUrl = imageURL {
-                imageCell.kf.setImage(with: URL(string: imageUrl))    
+                imageCell.kf.setImage(with: URL(string: imageUrl))
             }else{
                 imageCell.image = UIImage(systemName: "multiply.square")
             }

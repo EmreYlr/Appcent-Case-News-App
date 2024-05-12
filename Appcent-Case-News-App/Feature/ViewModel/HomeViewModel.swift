@@ -16,6 +16,8 @@ protocol HomeViewModelProtocol {
 
 protocol HomeViewModelOutputProtocol : AnyObject {
     func update()
+    func startLoading()
+    func stopLoading()
     func error()
 }
 
@@ -26,6 +28,7 @@ final class HomeViewModel {
     private var currentPage = 1
     
     func fetchData(endpoint: Endpoint) {
+        delegate?.startLoading()
         if tempEndpoint.rawValue() != endpoint.rawValue() {
             currentPage = 1
             newsItem.removeAll()
@@ -44,6 +47,7 @@ final class HomeViewModel {
                     print("Hata: \(error)")
                     self?.delegate?.error()
                 }
+                self?.delegate?.stopLoading()
             }
         }
         tempEndpoint = endpoint

@@ -11,6 +11,8 @@ final class HomeViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
+    
     
     var homeViewModel: HomeViewModelProtocol = HomeViewModel()
     
@@ -22,7 +24,6 @@ final class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         homeViewModel.fetchData(endpoint: .topHeadlines(country: .us))
         searchBar.delegate = self
-
     }
     
     
@@ -30,6 +31,16 @@ final class HomeViewController: UIViewController {
 
 //MARK: -HomeViewProtocolOutput
 extension HomeViewController: HomeViewModelOutputProtocol {
+    func startLoading() {
+        loadIndicator.isHidden = false
+        loadIndicator.startAnimating()
+    }
+    
+    func stopLoading() {
+        loadIndicator.isHidden = true
+        loadIndicator.stopAnimating()
+    }
+    
     func update() {
         tableView.reloadData()
         print("Update")
@@ -43,9 +54,15 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text, !searchText.isEmpty {
             homeViewModel.fetchData(endpoint: .search(query: searchText))
+            searchBar.text = ""
         }else {
             homeViewModel.fetchData(endpoint: .topHeadlines(country: .us))
         }
-    
+        searchBar.resignFirstResponder()
+        tableView.reloadData()
+        tableView.setContentOffset(CGPoint.zero, animated: true)
+        
     }
+    
+    
 }
