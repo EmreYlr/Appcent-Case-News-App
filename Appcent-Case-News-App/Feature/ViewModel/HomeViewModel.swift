@@ -22,9 +22,14 @@ protocol HomeViewModelOutputProtocol : AnyObject {
 final class HomeViewModel {
     private(set) var newsItem:[Article] = []
     weak var delegate: HomeViewModelOutputProtocol?
+    private var tempEndpoint: Endpoint = .topHeadlines(country: .us)
     private var currentPage = 1
     
     func fetchData(endpoint: Endpoint) {
+        if tempEndpoint.rawValue() != endpoint.rawValue() {
+            currentPage = 1
+            newsItem.removeAll()
+        }
         if let url = NetworkHelper.toURL(endpoint: endpoint, page: currentPage) {
             NetworkManager.shared.request(from: url, method: .get) { [weak self] (result: Result<News, ErrorTypes>) in
                 switch result {
@@ -41,11 +46,12 @@ final class HomeViewModel {
                 }
             }
         }
+        tempEndpoint = endpoint
     }
     
     func loadNextPage() {
         currentPage += 1
-        fetchData(endpoint: .topHeadlines(country: .us))
+        fetchData(endpoint: tempEndpoint)
     }
     
     private func filterData(data: News) -> [Article] {

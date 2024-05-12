@@ -10,6 +10,8 @@ import UIKit
 final class HomeViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var homeViewModel: HomeViewModelProtocol = HomeViewModel()
     
     override func viewDidLoad() {
@@ -18,9 +20,12 @@ final class HomeViewController: UIViewController {
         tableView.delegate = self
         homeViewModel.delegate = self
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
         homeViewModel.fetchData(endpoint: .topHeadlines(country: .us))
+        searchBar.delegate = self
+
     }
+    
+    
 }
 
 //MARK: -HomeViewProtocolOutput
@@ -33,6 +38,14 @@ extension HomeViewController: HomeViewModelOutputProtocol {
     func error() {
         print("Error")
     }
+}
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            homeViewModel.fetchData(endpoint: .search(query: searchText))
+        }else {
+            homeViewModel.fetchData(endpoint: .topHeadlines(country: .us))
+        }
     
-    
+    }
 }

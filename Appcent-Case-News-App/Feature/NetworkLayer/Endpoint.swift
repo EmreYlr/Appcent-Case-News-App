@@ -10,7 +10,6 @@ import Foundation
 enum Endpoint {
     case topHeadlines(country: Country)
     case search(query: String)
-    case source
 
     func rawValue() -> String {
         switch self {
@@ -18,8 +17,6 @@ enum Endpoint {
             return "top-headlines?country=\(country)"
         case .search(let query):
             return "everything?q=\(query)"
-        case .source:
-            return "sources"
         }
     }
 }

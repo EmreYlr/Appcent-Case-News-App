@@ -3,4 +3,84 @@
    uuid = "A82DCBD3-E7FC-4420-B8AF-AC821B1089ED"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9E1E336-132E-4AE4-924E-DE52DD36C454"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Appcent-Case-News-App/Feature/View/HomeViewController+TableView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "tableView(_:willDisplay:forRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FF85A846-2A43-4126-A491-2199D72B6818"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Appcent-Case-News-App/Feature/View/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "searchBarSearchButtonClicked(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FF85A846-2A43-4126-A491-2199D72B6818 - 7f3b80da7e055067"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Appcent_Case_News_App.HomeViewController.searchBarSearchButtonClicked(__C.UISearchBar) -&gt; ()"
+                  moduleName = "Appcent-Case-News-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emre/Desktop/Appcent-Case-News-App/Appcent-Case-News-App/Feature/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44">
+               </Location>
+               <Location
+                  uuid = "FF85A846-2A43-4126-A491-2199D72B6818 - 7f3b80da7e055067"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Appcent_Case_News_App.HomeViewController.searchBarSearchButtonClicked(__C.UISearchBar) -&gt; ()"
+                  moduleName = "Appcent-Case-News-App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/emre/Desktop/Appcent-Case-News-App/Appcent-Case-News-App/Feature/View/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F7239DD-20AD-40FD-B315-5E78136933E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Appcent-Case-News-App/Feature/ViewModel/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchData(endpoint:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
