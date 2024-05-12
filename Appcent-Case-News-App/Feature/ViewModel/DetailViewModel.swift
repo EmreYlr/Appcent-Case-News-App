@@ -11,11 +11,6 @@ protocol DetailViewModelProtocol {
     var article: Article? { get set }
 }
 
-protocol DetailViewModelOutputProtocol: AnyObject {
-    func update()
-    func error()
-}
-
 final class DetailViewModel {
     var article: Article?
 }

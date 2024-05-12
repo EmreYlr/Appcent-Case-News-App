@@ -170,11 +170,47 @@
                         <outlet property="newsImageView" destination="F3u-qP-LjO" id="IC8-Lp-hOi"/>
                         <outlet property="sourceButton" destination="u4j-ws-xR8" id="Zex-JS-EgK"/>
                         <outlet property="titleLabel" destination="LDc-ke-xIZ" id="ncn-op-e1V"/>
+                        <segue destination="6o7-jC-Gwb" kind="show" identifier="sourceScreen" id="yiM-5s-5BR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u8g-Ta-SOP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1945.8015267175572" y="3.5211267605633805"/>
+        </scene>
+        <!--News Source-->
+        <scene sceneID="pZ9-3L-EmM">
+            <objects>
+                <viewController storyboardIdentifier="SourceViewController" id="6o7-jC-Gwb" customClass="SourceViewController" customModule="Appcent_Case_News_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jvs-Ml-8wk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-yY-diY">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HKo-fR-cSC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xxj-yY-diY" firstAttribute="trailing" secondItem="HKo-fR-cSC" secondAttribute="trailing" id="SzK-O4-B5a"/>
+                            <constraint firstItem="xxj-yY-diY" firstAttribute="leading" secondItem="HKo-fR-cSC" secondAttribute="leading" id="iQU-A5-2x0"/>
+                            <constraint firstItem="xxj-yY-diY" firstAttribute="top" secondItem="HKo-fR-cSC" secondAttribute="top" id="tX0-4f-zUl"/>
+                            <constraint firstItem="xxj-yY-diY" firstAttribute="bottom" secondItem="HKo-fR-cSC" secondAttribute="bottom" id="wv6-3f-Jge"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="News Source" id="e3y-OY-JHs"/>
+                    <connections>
+                        <outlet property="webKitView" destination="xxj-yY-diY" id="iqu-sw-ENg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLH-vA-WKv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2893.8931297709923" y="3.5211267605633805"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mLD-oO-1MJ">

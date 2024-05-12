@@ -28,8 +28,8 @@ final class HomeViewModel {
     private var currentPage = 1
     
     func fetchData(endpoint: Endpoint) {
-        delegate?.startLoading()
         if tempEndpoint.rawValue() != endpoint.rawValue() {
+            delegate?.startLoading()
             currentPage = 1
             newsItem.removeAll()
         }
@@ -39,8 +39,10 @@ final class HomeViewModel {
                 case .success(let data):
                     guard !data.articles.isEmpty else {
                         self?.currentPage -= 1
+                        self?.delegate?.stopLoading()
                         return
                     }
+                    self?.delegate?.startLoading()
                     self?.newsItem.append(contentsOf: self?.filterData(data: data) ?? data.articles)
                     self?.delegate?.update()
                 case .failure(let error):

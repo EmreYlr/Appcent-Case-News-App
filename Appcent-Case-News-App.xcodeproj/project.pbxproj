@@ -30,6 +30,8 @@
 		C3DFCF9B2BEE25930004B3C1 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3DFCF992BEE25930004B3C1 /* HomeTableViewCell.xib */; };
 		C3EDAEED2BEF9E3000B9B322 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EDAEEC2BEF9E3000B9B322 /* DetailViewController.swift */; };
 		C3EDAEEF2BEF9E5700B9B322 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EDAEEE2BEF9E5700B9B322 /* DetailViewModel.swift */; };
+		C3EDAEF42BF13AD100B9B322 /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EDAEF32BF13AD100B9B322 /* SourceViewController.swift */; };
+		C3EDAEF62BF13AE200B9B322 /* SourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EDAEF52BF13AE200B9B322 /* SourceViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		C3DFCF992BEE25930004B3C1 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		C3EDAEEC2BEF9E3000B9B322 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C3EDAEEE2BEF9E5700B9B322 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		C3EDAEF32BF13AD100B9B322 /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
+		C3EDAEF52BF13AE200B9B322 /* SourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 			children = (
 				C3AF01402BECCE5700A6CA33 /* HomeViewModel.swift */,
 				C3EDAEEE2BEF9E5700B9B322 /* DetailViewModel.swift */,
+				C3EDAEF52BF13AE200B9B322 /* SourceViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				C3AF01072BECCBD800A6CA33 /* HomeViewController.swift */,
 				C38CD5932BECE08400D936E7 /* HomeViewController+TableView.swift */,
 				C3EDAEEC2BEF9E3000B9B322 /* DetailViewController.swift */,
+				C3EDAEF32BF13AD100B9B322 /* SourceViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -389,7 +395,9 @@
 				C38CD5962BECE22E00D936E7 /* Endpoint.swift in Sources */,
 				C3AF013A2BECCDF200A6CA33 /* NetworkHelper.swift in Sources */,
 				C3AF01412BECCE5700A6CA33 /* HomeViewModel.swift in Sources */,
+				C3EDAEF62BF13AE200B9B322 /* SourceViewModel.swift in Sources */,
 				C3AF01082BECCBD800A6CA33 /* HomeViewController.swift in Sources */,
+				C3EDAEF42BF13AD100B9B322 /* SourceViewController.swift in Sources */,
 				C3AF013C2BECCDFA00A6CA33 /* NetworkManager.swift in Sources */,
 				C3EDAEEF2BEF9E5700B9B322 /* DetailViewModel.swift in Sources */,
 				C3DFCF9A2BEE25930004B3C1 /* HomeTableViewCell.swift in Sources */,

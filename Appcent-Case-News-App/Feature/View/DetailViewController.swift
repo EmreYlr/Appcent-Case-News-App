@@ -80,16 +80,12 @@ extension DetailViewController {
     }
     
     @IBAction func sourceButtonAction(_ sender: Any) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let sourceVC = storyboard.instantiateViewController(withIdentifier: "SourceViewController") as! SourceViewController
+        if let articleUrl = detailViewModel.article?.url {
+            sourceVC.sourceViewModel.articleUrl = URL(string: articleUrl)
+        }
+        navigationController?.pushViewController(sourceVC, animated: true)
     }
 }
-//MARK: -DetailViewModelOutputProtocol
-extension DetailViewController: DetailViewModelOutputProtocol {
-    func update() {
-        print("Update")
-    }
-    
-    func error() {
-        print("Error")
-    }
-}
+
