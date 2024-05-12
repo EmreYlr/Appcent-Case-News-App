@@ -27,13 +27,23 @@ class DetailViewController: UIViewController {
       return heartButton
     }()
     
+    private lazy var shareButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        button.tintColor = .systemGray
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     var detailViewModel: DetailViewModelProtocol = DetailViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initLoad()
         sourceButtonConfiguration()
-        heartButtonConfiguration()
+        rightTopButtonConfiguration()
+        
     }
 
     func initLoad() {
@@ -56,13 +66,20 @@ class DetailViewController: UIViewController {
 }
 //MARK: -ButtonConfiguration
 extension DetailViewController {
-    //MARK: -HeartButtonConfiguration
-    func heartButtonConfiguration() {
+    //MARK: -RightTopButtonConfiguration
+    func rightTopButtonConfiguration() {
         heartButton.addTarget(self, action: #selector(heartButtonTapped), for: .touchUpInside)
-        let rightBarButton = UIBarButtonItem(customView: heartButton)
-        navigationItem.rightBarButtonItem = rightBarButton
+        let shareBarButton = UIBarButtonItem(customView: shareButton)
+        let heartBarButton = UIBarButtonItem(customView: heartButton)
+        navigationItem.rightBarButtonItems = [heartBarButton, shareBarButton]
     }
-    
+    //MARK: -ShareButtonConfiguration
+    @objc func shareButtonTapped() {
+        guard let url = URL(string: detailViewModel.article?.url ?? "No URL") else { return }
+        let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
+    }
+    //MARK: -HeartButtonConfiguration
     @objc func heartButtonTapped() {
         if heartButton.tintColor == .systemGray {
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
