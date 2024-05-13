@@ -45,6 +45,10 @@ class DetailViewController: UIViewController {
         rightTopButtonConfiguration()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+    }
 
     func initLoad() {
         if let article = detailViewModel.article {
@@ -61,8 +65,21 @@ class DetailViewController: UIViewController {
                 descriptionTextView.text = article.content ?? "Content Unavailable. Go to the news source."
             }
         }
+        isFavorite()
     }
-    
+    //FavoriteControl
+    func isFavorite() {
+        if let article = detailViewModel.article {
+            if detailViewModel.isArticleFavorite(article) {
+                heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                heartButton.tintColor = .red
+            } else {
+                heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                heartButton.tintColor = .systemGray
+            }
+        }
+        
+    }
 }
 //MARK: -ButtonConfiguration
 extension DetailViewController {
@@ -84,9 +101,11 @@ extension DetailViewController {
         if heartButton.tintColor == .systemGray {
             heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             heartButton.tintColor = .red
+            detailViewModel.saveToFavorites()
         } else {
             heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
             heartButton.tintColor = .systemGray
+            detailViewModel.removeFromFavorites()
         }
     }
     //MARK: -SourceButtonConfiguration

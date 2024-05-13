@@ -26,7 +26,10 @@ final class HomeViewController: UIViewController {
         searchBar.delegate = self
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
 }
 
 //MARK: -HomeViewProtocolOutput
@@ -43,11 +46,18 @@ extension HomeViewController: HomeViewModelOutputProtocol {
     
     func update() {
         tableView.reloadData()
-        print("Update")
     }
     
-    func error() {
-        print("Error")
+    func error(error: ErrorTypes) {
+        switch error {
+        case .noData:
+            showAlert(title: "Error", message: "This content is not available. Please try again with another word.")
+            break
+        case .invalidData:
+            showAlert(title: "Error", message: "Invalid data. Please check your internet connection")
+            break
+        }
+        
     }
 }
 extension HomeViewController: UISearchBarDelegate {
@@ -63,6 +73,4 @@ extension HomeViewController: UISearchBarDelegate {
         tableView.setContentOffset(CGPoint.zero, animated: true)
         
     }
-    
-    
 }

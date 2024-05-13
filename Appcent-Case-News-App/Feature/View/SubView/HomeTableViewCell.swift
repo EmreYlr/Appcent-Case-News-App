@@ -19,7 +19,7 @@ class HomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
+    //MARK: -Main Cell Configuration
     func mainCellConfiguration(title: String?, imageURL: String?, description: String?, date: String?, source: String?) {
         imageCell.layer.cornerRadius = 18
         DispatchQueue.main.async { [self] in
@@ -29,6 +29,7 @@ class HomeTableViewCell: UITableViewCell {
             }else{
                 imageCell.image = UIImage(systemName: "multiply.square")
             }
+             
             titleCell.text = title ?? "No Title"
             descriptionCell.text = description ?? "No Description"
             dateCell.text = date ?? "No Date"

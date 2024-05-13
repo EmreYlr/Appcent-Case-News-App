@@ -24,7 +24,7 @@ final class NetworkManager {
             case .success(let value):
                 completion(.success(value))
             case .failure(_):
-                completion(.failure(.invalidURL))
+                completion(.failure(.invalidData))
                 break
             }
         }

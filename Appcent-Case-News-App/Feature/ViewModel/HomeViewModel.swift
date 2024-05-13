@@ -18,7 +18,7 @@ protocol HomeViewModelOutputProtocol : AnyObject {
     func update()
     func startLoading()
     func stopLoading()
-    func error()
+    func error(error: ErrorTypes)
 }
 
 final class HomeViewModel {
@@ -37,6 +37,11 @@ final class HomeViewModel {
             NetworkManager.shared.request(from: url, method: .get) { [weak self] (result: Result<News, ErrorTypes>) in
                 switch result {
                 case .success(let data):
+                    if data.totalResults == 0 {
+                        self?.delegate?.error(error: ErrorTypes.noData)
+                        self?.delegate?.stopLoading()
+                        return
+                    }
                     guard !data.articles.isEmpty else {
                         self?.currentPage -= 1
                         self?.delegate?.stopLoading()
@@ -45,21 +50,20 @@ final class HomeViewModel {
                     self?.delegate?.startLoading()
                     self?.newsItem.append(contentsOf: self?.filterData(data: data) ?? data.articles)
                     self?.delegate?.update()
-                case .failure(let error):
-                    print("Hata: \(error)")
-                    self?.delegate?.error()
+                case .failure(_):
+                    self?.delegate?.error(error: ErrorTypes.invalidData)
                 }
                 self?.delegate?.stopLoading()
             }
         }
         tempEndpoint = endpoint
     }
-    
+    //Pagination
     func loadNextPage() {
         currentPage += 1
         fetchData(endpoint: tempEndpoint)
     }
-    
+    //Date formater and "Removed" data clear
     private func filterData(data: News) -> [Article] {
         let dateFormatterInput = DateFormatter()
         dateFormatterInput.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

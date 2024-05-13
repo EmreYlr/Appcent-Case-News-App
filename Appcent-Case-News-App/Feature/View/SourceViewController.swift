@@ -22,6 +22,8 @@ class SourceViewController: UIViewController {
         if let url = sourceViewModel.articleUrl {
             let myRequest = URLRequest(url: url)
             webKitView.load(myRequest)
+        }else{
+            showAlert(title: "Error", message: "Invalid url")
         }
     }
 }

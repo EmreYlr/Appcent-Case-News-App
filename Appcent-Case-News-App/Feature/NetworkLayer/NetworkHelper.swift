@@ -37,6 +37,6 @@ extension HTTPMethods {
 
 //MARK: -ErrorTypes
 enum ErrorTypes: String,Error {
-    case invalidData = "Invalid Data"
-    case invalidURL = "Invalid URL"
+    case invalidData
+    case noData
 }
