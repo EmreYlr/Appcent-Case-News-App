@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -45,6 +45,7 @@ class DetailViewController: UIViewController {
         rightTopButtonConfiguration()
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -78,7 +79,6 @@ class DetailViewController: UIViewController {
                 heartButton.tintColor = .systemGray
             }
         }
-        
     }
 }
 //MARK: -ButtonConfiguration

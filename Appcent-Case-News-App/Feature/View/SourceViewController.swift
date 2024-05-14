@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class SourceViewController: UIViewController {
+final class SourceViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet var webKitView: WKWebView!
     

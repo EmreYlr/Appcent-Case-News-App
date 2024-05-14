@@ -8,10 +8,14 @@
 import Foundation
 import Alamofire
 
+protocol NetworkManagerProtocol {
+    func request<T: Codable>(from url: URL ,method: HTTPMethods ,completion: @escaping(Result<T, ErrorTypes>) -> Void)
+}
+
 //MARK: -NetworkManager
-final class NetworkManager {
+final class NetworkManager: NetworkManagerProtocol {
     //Singleton Pattern
-    static let shared = NetworkManager()
+    //static let shared = NetworkManager()
     
     /// Sends a network request and processes its result.
     /// - Parameters:

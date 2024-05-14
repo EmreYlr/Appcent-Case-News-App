@@ -20,7 +20,7 @@ enum Endpoint {
         }
     }
 }
-
+//MARK -Country
 enum Country: String {
     case tr = "tr"
     case us = "us"

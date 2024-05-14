@@ -55,7 +55,6 @@ final class DetailViewModel {
         }
         return false
     }
-
 }
 
 extension DetailViewModel : DetailViewModelProtocol { }

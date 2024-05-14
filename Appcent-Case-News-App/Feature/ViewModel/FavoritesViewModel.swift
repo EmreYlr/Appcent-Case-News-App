@@ -36,5 +36,4 @@ final class FavoritesViewModel {
     }
 }
 
-extension FavoritesViewModel: FavoritesViewModelProtocol {
-}
+extension FavoritesViewModel: FavoritesViewModelProtocol { }

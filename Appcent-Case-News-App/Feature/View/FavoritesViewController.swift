@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+final class FavoritesViewController: UIViewController {
     //MARK: -Properties
     @IBOutlet weak var tableView: UITableView!
     var favoritesViewModel: FavoritesViewModelProtocol = FavoritesViewModel()
@@ -31,7 +31,7 @@ class FavoritesViewController: UIViewController {
         tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
 }
-
+//MARK: -FavoritesViewModelOutputProtocol
 extension FavoritesViewController: FavoritesViewModelOutputProtocol {
     func update() {
         tableView.reloadData()

@@ -26,6 +26,11 @@ final class HomeViewModel {
     weak var delegate: HomeViewModelOutputProtocol?
     private var tempEndpoint: Endpoint = .topHeadlines(country: .us)
     private var currentPage = 1
+    private let networkManager: NetworkManagerProtocol
+    
+    init(networkManager: NetworkManagerProtocol = NetworkManager()) {
+        self.networkManager = networkManager
+    }
     
     func fetchData(endpoint: Endpoint) {
         if tempEndpoint.rawValue() != endpoint.rawValue() {
@@ -34,7 +39,7 @@ final class HomeViewModel {
             newsItem.removeAll()
         }
         if let url = NetworkHelper.toURL(endpoint: endpoint, page: currentPage) {
-            NetworkManager.shared.request(from: url, method: .get) { [weak self] (result: Result<News, ErrorTypes>) in
+            networkManager.request(from: url, method: .get) { [weak self] (result: Result<News, ErrorTypes>) in
                 switch result {
                 case .success(let data):
                     if data.totalResults == 0 {
@@ -79,7 +84,6 @@ final class HomeViewModel {
             return updatedArticle
         }.filter { $0.title != "[Removed]" }
     }
-
 }
 
 extension HomeViewModel: HomeViewModelProtocol { }

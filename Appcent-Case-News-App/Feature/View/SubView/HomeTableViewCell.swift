@@ -9,16 +9,13 @@ import UIKit
 import Kingfisher
 
 class HomeTableViewCell: UITableViewCell {
+    //MARK: Properties
     @IBOutlet weak var titleCell: UILabel!
     @IBOutlet weak var descriptionCell: UILabel!
     @IBOutlet weak var dateCell: UILabel!
     @IBOutlet weak var sourceCell: UILabel!
     @IBOutlet weak var imageCell: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
     //MARK: -Main Cell Configuration
     func mainCellConfiguration(title: String?, imageURL: String?, description: String?, date: String?, source: String?) {
         imageCell.layer.cornerRadius = 18

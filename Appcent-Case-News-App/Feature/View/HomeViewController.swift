@@ -13,22 +13,25 @@ final class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadIndicator: UIActivityIndicatorView!
     
-    
     var homeViewModel: HomeViewModelProtocol = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        homeViewModel.delegate = self
-        tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        initConfig()
         homeViewModel.fetchData(endpoint: .topHeadlines(country: .us))
-        searchBar.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func initConfig() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        searchBar.delegate = self
+        homeViewModel.delegate = self
+        tableView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
     }
 }
 
@@ -57,9 +60,9 @@ extension HomeViewController: HomeViewModelOutputProtocol {
             showAlert(title: "Error", message: "Invalid data. Please check your internet connection")
             break
         }
-        
     }
 }
+//MARK: -UISeachBarDelegate
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchText = searchBar.text, !searchText.isEmpty {
@@ -71,6 +74,5 @@ extension HomeViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         tableView.reloadData()
         tableView.setContentOffset(CGPoint.zero, animated: true)
-        
     }
 }
